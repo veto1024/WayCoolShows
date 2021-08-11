@@ -17,6 +17,9 @@ export function ContactUs(props) {
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
+    ContactUs.defaultProps = {
+        block:false,
+    }
 
     function handleSubmit(s) {
         const form = s.currentTarget;
@@ -66,7 +69,7 @@ export function ContactUs(props) {
 
     return (
         <div>
-        <Button variant={"primary"} onClick={handleShowModal}>
+        <Button variant={"primary"} onClick={handleShowModal} block={props.block} className={"draw-border zoom"}>
             Contact Us
         </Button>
         <Modal show={showModal} onHide={handleCloseModal}>
@@ -125,7 +128,7 @@ export function ContactUs(props) {
 
                         </Form.Group>
                         <Col xs={{span: 6,  offset:3}} className={"my-2"}>
-                            <Button variant={"primary"} type={"submit"}>Submit</Button>
+                            <Button variant={"primary"} type={"submit"} >Submit</Button>
                         </Col>
                     </Form> : <p>Thanks for contacting us! We'll be in touch soon!</p>}
             </Container>

@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react'
-import {Card, Col, Nav, Row, Navbar, Container} from 'react-bootstrap';
+import {Card, Col, Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstrap';
 
 export function MainHeader(props) {
     const [picLoaded, changePicLoaded] = useState(false)
@@ -28,9 +28,12 @@ export function MainHeader(props) {
                         <Navbar.Collapse id={"basic-navbar-nav"}  >
                             <Nav className="me-auto">
                                 <Nav.Link href={"#home"}>Home</Nav.Link>
-                                <Nav.Link href={"#shows"}>Shows</Nav.Link>
-                                <Nav.Link href={"#resources"}>Requirements</Nav.Link>
-                                <Nav.Link href={"#about-me"}>About</Nav.Link>
+                                <NavDropdown title={"Shows"} id={"shows-dropdown"}>
+                                    <NavDropdown.Item href="#birthday-box">Birthday Parties</NavDropdown.Item>
+                                    <NavDropdown.Item href="#school-box">Schools</NavDropdown.Item>
+                                </NavDropdown>
+                                <Nav.Link href={"#activities-box"}>Activities</Nav.Link>
+                                <Nav.Link href={"#about-me-box"}>About</Nav.Link>
                                 <Nav.Link href={""}>Contact Us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

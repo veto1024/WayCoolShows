@@ -10,9 +10,25 @@ export function Activities(props) {
         'https://via.placeholder.com/300x300/FFFF00/000000',
     ];
 
+    const activities = [
+        ["Safety", "-320F,77K/ water balloon glove"],
+        ["See and Touch a Cloud", "What are the common states of matter and their phase changes?"],
+        ["Cold but Boiling?!", "Tea kettle demonstration"],
+        ["Shrinking Balloons" , "What happens to air when it is rapidly cooled. Does the opposite happen when air is warmed?"],
+        ["Spinning Ping Pong Balls" , "Hero's engine, the first engine."],
+        [ "Exploding Balloon", "What happens when air expands and it's contained? Why does a little liquid mean a lot of gas?"],
+        [ "Bi-metallic Strip", "What happens to metals as they are rapidly cooled? Is it reversible when warmed?"],
+        [ "Rubber Nail and Banana Hammer", "What happens when different kinds of solids freeze quickly?"],
+        [ "Breakable Penny", "Why can some pennies be broken and not others?"],
+        ["Shattering Flowers" , "What happens to living things if they are frozen?" ],
+        ["Liquid Oxygen" , "Extract liquid oxygen from the air and talk about how we know what it is."],
+        [ "Nitrogen Sprinkler", "What is the Leidenfrost effect and why does it do cool things?"],
+        ["Optional", "Dragon's breath marshmallows"]
+    ]
+
 
     const fadeProperties = {
-        duration: 4000,
+        duration: 2500,
         arrows: false,
         transitionDuration: 500,
         infinite: true,
@@ -28,43 +44,20 @@ return (
                         <p>Activities</p>
                     </Row>
                     <Row className={"show-box-row"}>
-                        <Col xs={{span:8, offset:2}} lg={{span:7, offset:0}} className={"norm-text"}>
+                        <Col xs={{span:10, offset:1}} lg={{span:7, offset:0}} className={"norm-text"}>
                             <Row>
-                                <Col xs={4} className={"text-center font-weight-bolder"} style={{color: "orange"}}>
-                                    <p>Safety</p>
-                                    <p>See and Touch a Cloud</p>
-                                    <p>Cold but Boiling?! </p>
-                                    <p>Shrinking Balloons</p>
-                                    <p>Spinning Ping Pong Balls</p>
-                                    <p>Exploding Balloon</p>
-                                    <p>Bi-metallic Strip</p>
-                                    <p>Rubber Nail and Banana Hammer</p>
-                                    <p>Breakable Penny</p>
-                                    <p>Shattering Flowers</p>
-                                    <p>Liquid Oxygen</p>
-                                    <p>Nitrogen Sprinkler</p>
-                                    <p>Optional</p>
+                                <Table borderless striped={false}>
+                                    {activities.map((activity)  =>
 
-                                </Col>
-                                <Col xs={8} className={"text-left"}>
-                                    <p>-320F,77K/ water balloon glove</p>
-                                    <p>What are the common states of matter and their phase changes?</p>
-                                    <p>Tea kettle demonstration</p>
-                                    <p>What happens to air when it is rapidly cooled. Does the opposite happen when air is warmed?</p>
-                                    <p>Hero's engine, the first engine.</p>
-                                    <p>What happens when air expands and it's contained? Why does a little liquid mean a lot of gas?</p>
-                                    <p>What happens to metals as they are rapidly cooled? Is it reversible when warmed?</p>
-                                    <p>What happens when different kinds of solids freeze quickly?</p>
-                                    <p>Why can some pennies be broken and not others?</p>
-                                    <p>What happens to living things if they are frozen?</p>
-                                    <p>Extract liquid oxygen from the air and talk about how we know what it is.</p>
-                                    <p>What is the Leidenfrost effect and why does it do cool things?</p>
-                                    <p>Dragon's breath marshmallows</p>
-
-                                </Col>
+                                    <tr key={activity.id}>
+                                        <td className={"text-orange"}>{activity[0]}</td>
+                                        <td className={"text-left text-white"}>{activity[1]}</td>
+                                    </tr>
+                                    )}
+                                </Table>
                             </Row>
                         </Col>
-                        <Col xs={{span:8, offset:2}} lg={{span:5, offset:0}}>
+                        <Col xs={{span:10, offset:1}} lg={{span:5, offset:0}}>
                             <div className="slide-container">
                                 <Fade {...fadeProperties}>
                                     <div className="each-fade">

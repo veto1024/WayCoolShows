@@ -9,9 +9,58 @@ $nitrogenSpectra: #42006e;
 $funText: "Bubblegum Sans";
 $verPic : "https://via.placeholder.com/250x600";
 $horPic : "https://via.placeholder.com/600x250";
+$fadeAlmostInOpacity: 0.9;
+
+body {
+  background-image: url("assets/images/main-back-90.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/**********************************************
+            Typography
+***********************************************/
+
+.norm-text {
+  font-size: 1rem;
+}
+
+.text-orange {
+  color: orange;
+}
+
+.fun-text {
+  font-family: $funText;
+  font-size: 1.5rem;
+}
+.fun-text-larger {
+  font-family: $funText;
+  font-size: 2.5rem;
+}
+
+.fun-text-largest {
+  font-family: $funText;
+  font-size: 3.5rem;
+}
+
+.text-block-center {
+  @include media-breakpoint-up(lg){
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-25%, -50%);
+  }
+}
+
+
+
+/**********************************************
+           Content-related
+***********************************************/
 
 .hero-row {
-  height: 500px;
+  //height: 500px;
   width:100%;
   img {
     height:100%;
@@ -19,6 +68,9 @@ $horPic : "https://via.placeholder.com/600x250";
   }
   div {
     visibility: inherit;
+    @include media-breakpoint-down(lg) {
+      height: 12.5vh;
+    }
   }
 }
 
@@ -37,18 +89,6 @@ $horPic : "https://via.placeholder.com/600x250";
 #hero-pic-4 {
   background-image: url($horPic);
   background-size: contain;
-}
-
-.norm-text {
-  font-size: 1rem;
-}
-
-.text-block-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-25%, -50%);
 }
 
 
@@ -104,29 +144,86 @@ button.btn {
   height: 500px;
 }
 
-.fun-text {
-  font-family: $funText;
-  font-size: 1.5rem;
-}
-.fun-text-larger {
-  font-family: $funText;
-  font-size: 2.5rem;
-}
-
-.fun-text-largest {
-  font-family: $funText;
-  font-size: 3.5rem;
+img.img-fit-width {
+  width: 100%;
+  height: auto;
 }
 div#activities-box p {
   height: 2rem;
 }
+
+/*************************************
+           Fancy Button
+******************************** */
+
+//=== Drawing effect
+
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before { transition-delay: 0s, 0s, $duration; }
+
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+.draw-border {
+  @include btn-border-drawing(#63e1d0, #ffffff, 4px, bottom, right);
+}
+
+/**********************************************
+            Slideshow utilities
+***********************************************/
+
 .each-fade {
   display: flex;
   width: 100%;
 }
 
 .each-fade > div {
-  width: 75%;
+  width: 100%;
+  height: auto;
 }
 
 .each-fade > div img {
@@ -147,6 +244,19 @@ div#activities-box p {
 }
 
 
+/**********************************************
+            Animation utilities
+***********************************************/
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .slide {
   position: relative;
 
@@ -164,7 +274,7 @@ div#activities-box p {
 }
 
 .slideDownFadeIn-enter {
-  //visibility: visible;
+  opacity: 0;
   @include media-breakpoint-up(lg) {
     transform: translateY(-1000px);
   }
@@ -176,16 +286,15 @@ div#activities-box p {
 
 .slideDownFadeIn-enter-active  {
   @include media-breakpoint-up(lg) {
-    animation: slideDownFadeIn 2s linear;
+    animation: slideDownFadeIn 2s ease-out;
   }
   @include media-breakpoint-down(lg) {
-    animation: slideRightFadeIn 2s linear;
+    animation: slideRightFadeIn 2s ease-out;
   }
 }
 
 .slideDownFadeIn-enter-done {
-  //visibility: visible !important;
-  opacity: 1;
+  opacity: $fadeAlmostInOpacity !important;
 }
 
 
@@ -194,7 +303,7 @@ div#activities-box p {
 }
 
 .fade-enter-done {
-  opacity: 1;
+  opacity: $fadeAlmostInOpacity;
   visibility: visible;
 }
 
@@ -232,7 +341,7 @@ div#activities-box p {
     transform: translateY(-1000px);
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateY(0px);
   }
 }
@@ -242,7 +351,7 @@ div#activities-box p {
     transform: translateY(-1000px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateY(0px);
   }
 }
@@ -252,7 +361,7 @@ div#activities-box p {
     transform: translateY(-1000px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateY(0px)
   }
 }
@@ -262,7 +371,7 @@ div#activities-box p {
     transform: translateY(-1000px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateY(0px)
   }
 }
@@ -272,7 +381,7 @@ div#activities-box p {
     transform: translateY(-1000px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateY(0px)
   }
 }
@@ -282,7 +391,7 @@ div#activities-box p {
     transform: translateX(-500px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateX(0px)
   }
 }
@@ -292,7 +401,7 @@ div#activities-box p {
     transform: translateX(-500px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateX(0px)
   }
 }
@@ -302,7 +411,7 @@ div#activities-box p {
     transform: translateX(-1500px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateX(0px)
   }
 }
@@ -312,7 +421,7 @@ div#activities-box p {
     transform: translateX(-1500px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateX(0px)
   }
 }
@@ -322,7 +431,7 @@ div#activities-box p {
     transform: translateX(-1500px)
   }
   100% {
-    opacity: 1;
+    opacity: $fadeAlmostInOpacity;
     transform: translateX(0px)
   }
 }

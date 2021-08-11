@@ -19,7 +19,6 @@ export function HeroPics(props) {
         props.onPicsMounted(true)
     }
     useEffect( () => {
-        console.log("Done")
     }, [allPicsVisible])
 
     useEffect( () => {
@@ -51,7 +50,7 @@ export function HeroPics(props) {
                         <CSSTransition in={pic4Visible} classNames={"slideDownFadeIn"} timeout={2750}
                                        onEntered={handlePicsMounted}>
                             <Col key={4} lg={3} style={{animationDelay: "750ms"}} className={"mb-2"}>
-                                <Image id={"hero-pic-4"}/>
+                                <Image onLoad={handlePicsLoaded}  id={"hero-pic-4"}/>
                             </Col>
                         </CSSTransition>
                 </Row>
