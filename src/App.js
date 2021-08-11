@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Container} from 'react-bootstrap';
+import {MainHeader} from "./assets/MainHeader";
+import './App.scss'
+import {MainContent} from "./assets/MainContent";
+import {SiteFooter} from "./assets/SiteFooter";
 
 function App() {
+    const [contentMounted, changeContentMounted] = useState(false)
+    const [headerMounted, changeHeaderMounted] = useState(false)
+
+    function handleHeaderMounted(s) {
+        changeHeaderMounted(true)
+    }
+    function handleContentMounted(s) {
+        changeContentMounted(true)
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Container fluid >
+            <MainHeader onContentMounted={handleHeaderMounted}/>
+            {headerMounted ? <MainContent onContentMounted={changeContentMounted} /> : ''}
+            {contentMounted? <SiteFooter /> : ''}
+        </Container>
     </div>
   );
 }
