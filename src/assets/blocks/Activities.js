@@ -28,7 +28,7 @@ export function Activities(props) {
 
 
     const fadeProperties = {
-        duration: 2500,
+        duration: 2000,
         arrows: false,
         transitionDuration: 500,
         infinite: true,

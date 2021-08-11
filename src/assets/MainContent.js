@@ -7,6 +7,7 @@ import {ContactUs} from "./blocks/ContactUs";
 import {CSSTransition} from "react-transition-group";
 import {AboutMe} from "./blocks/AboutMe";
 import {Activities} from "./blocks/Activities";
+import {Testimonials} from "./blocks/Testimonials";
 
 export function MainContent(props) {
     const [heroMounted, changeHeroMounted] = useState(false)
@@ -27,13 +28,14 @@ export function MainContent(props) {
     }
 
     return(
-        <Container className={"mt-3 rounded"}>
+        <Container id={"main-content-container"} className={"rounded"}>
             <HeroPics onPicsMounted={handleHeroPicsMounted}/>
 
             {heroMounted ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
             {calloutMounted ? <Birthday onMounted={handleBirthdayMounted}/> : ''}
             {birthdayMounted ? <School onMounted={() => null}/> : ''}
             {birthdayMounted ? <Activities /> : ''}
+            {birthdayMounted ? <Testimonials /> : ''}
             {birthdayMounted ? <AboutMe/> : ''}
         </Container>
     )

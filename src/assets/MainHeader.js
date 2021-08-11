@@ -13,7 +13,7 @@ export function MainHeader(props) {
 
     return (
         <Row  >
-            <Navbar id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"}>
+            <Navbar id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"} fixed={"top"} className={""}>
                 <Container fluid className={"mr-5 mt-3 mb-3"}>
                     <Navbar.Brand href={"#home"} >
                         <img
@@ -27,14 +27,14 @@ export function MainHeader(props) {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" className={"mt-1"} />
                         <Navbar.Collapse id={"basic-navbar-nav"}  >
                             <Nav className="me-auto">
-                                <Nav.Link href={"#home"}>Home</Nav.Link>
-                                <NavDropdown title={"Shows"} id={"shows-dropdown"}>
+                                <Nav.Link href={"#home"} className={"text-white fun-text text-uppercase"}>Home</Nav.Link>
+                                <NavDropdown title={"Shows"} id={"shows-dropdown"} className={"text-white fun-text text-uppercase"}>
                                     <NavDropdown.Item href="#birthday-box">Birthday Parties</NavDropdown.Item>
                                     <NavDropdown.Item href="#school-box">Schools</NavDropdown.Item>
                                 </NavDropdown>
-                                <Nav.Link href={"#activities-box"}>Activities</Nav.Link>
-                                <Nav.Link href={"#about-me-box"}>About</Nav.Link>
-                                <Nav.Link href={""}>Contact Us</Nav.Link>
+                                <Nav.Link href={"#activities-box"} className={"text-white fun-text text-uppercase"}>Activities</Nav.Link>
+                                <Nav.Link href={"#about-me-box"} className={"text-white fun-text text-uppercase"}>About</Nav.Link>
+                                <Nav.Link href={""} className={"text-white fun-text text-uppercase"}>Contact Us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Row>
