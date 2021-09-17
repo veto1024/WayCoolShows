@@ -103,8 +103,8 @@ export function ContactUs(props) {
 
     return (
         <div>
-            <form name={"contact-us"} data-netlify={"true"} netlify-honeypot={"bot-field"} hidden={""}>
-                <input type={"text"} name={"name"}/>
+            <form name={"contact-us"} data-netlify={"true"} netlify-honeypot={"bot-field"} hidden>
+                <input type={"hidden"} name={"name"}/>
                 <textarea name={"descr"}></textarea>
                 <textarea name={"refer"}></textarea>
             </form>
