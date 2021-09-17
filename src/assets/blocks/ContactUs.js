@@ -52,15 +52,13 @@ export function ContactUs(props) {
         s.preventDefault();
         s.stopPropagation();
         if (form.checkValidity() === true) {
-
-            fetch("https://netlify_contact--coolscienceshows.netlify.app/index.html", {
+            fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({ "form-name": "contact-us", ...contactInfo })
             })
                 .then(() => changeShowSuccess(true))
                 .catch(error => alert(error));
-
         }
         changeValidated(true);
     }
@@ -103,7 +101,7 @@ export function ContactUs(props) {
 
     return (
         <div>
-            <form name={"contact-us"} data-netlify={"true"} netlify-honeypot={"bot-field"} hidden>
+            <form name={"contact-us"} method="POST" data-netlify={"true"} netlify-honeypot={"bot-field"} hidden>
                 <input type={"hidden"} name={"name"}/>
                 <textarea name={"descr"}></textarea>
                 <textarea name={"refer"}></textarea>
