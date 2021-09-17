@@ -115,7 +115,7 @@ body {
 }
 
 #hero-pic-1 {
-  content: $vertHero1lg;
+  background-image: url($horPic);
   background-size: contain;
 }
 #hero-pic-2 {

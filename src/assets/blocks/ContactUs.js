@@ -80,7 +80,7 @@ export function ContactUs(props) {
                     </Col>
                 </Row>
                 {!showSuccess ?
-                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Form noValidate validated={validated} onSubmit={handleSubmit} name={"contact-us"} data-netlify={true} >
                         <Form.Group className={"mb-3"} controlId="contactForm.ControlInput1">
                             <Col xs={12} className={"my-2"}>
                                 <Form.Control required type={"text"} placeholder="Name" />
@@ -128,7 +128,7 @@ export function ContactUs(props) {
 
                         </Form.Group>
                         <Col xs={{span: 6,  offset:3}} className={"my-2"}>
-                            <Button variant={"primary"} type={"submit"} >Submit</Button>
+                            <Button block variant={"primary"} type={"submit"} >Submit</Button>
                         </Col>
                     </Form> : <p>Thanks for contacting us! We'll be in touch soon!</p>}
             </Container>

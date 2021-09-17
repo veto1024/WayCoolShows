@@ -54,7 +54,9 @@ export function MainCallout(props) {
             <Row id={"box-1"} className={"border rounded"}>
                 <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                     <Row className={"mt-3"}>
-                        <p>Cool shows and stuff</p>
+                        <p className={"fun-text-larger"}>Educational and fun liquid nitrogen demonstrations for your party or school. </p>
+                        <p className={"fun-text"}>An interactive and safe learning experience for children of all ages.
+                        </p>
                     </Row>
                     <Row className={"mb-3"}>
                         <Col lg={{span:4, offset:4}}>

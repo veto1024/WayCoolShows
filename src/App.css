@@ -7903,7 +7903,7 @@ body {
         height: 12.5vh; } }
 
 #hero-pic-1 {
-  content: url("assets/images/lg/hero1.jpg");
+  background-image: url("https://via.placeholder.com/600x250");
   background-size: contain; }
 
 #hero-pic-2 {
