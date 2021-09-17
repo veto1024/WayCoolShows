@@ -53,7 +53,7 @@ export function ContactUs(props) {
         s.stopPropagation();
         if (form.checkValidity() === true) {
 
-            fetch("/", {
+            fetch("https://netlify_contact--coolscienceshows.netlify.app", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({ "form-name": "contact-us", ...contactInfo })
