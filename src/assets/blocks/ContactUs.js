@@ -119,7 +119,7 @@ export function ContactUs(props) {
                     </Col>
                 </Row>
                 {!showSuccess ?
-                    <Form noValidate validated={validated} onSubmit={handleSubmit} name={"contact-us"} data-netlify={true} >
+                    <Form noValidate validated={validated} onSubmit={handleSubmit} >
                         <Form.Group className={"mb-3"} controlId="contactForm.ControlInput1">
                             <Col xs={12} className={"my-2"}>
                                 <Form.Control required type={"text"} placeholder="Name" name={"name"}
