@@ -103,6 +103,11 @@ export function ContactUs(props) {
 
     return (
         <div>
+            <form name={"contact-us"} netlify={""} netlify-honeypot={"bot-field"} hidden={""}>
+                <input type={"text"} name={"name"}/>
+                <textarea name={"descr"}></textarea>
+                <textarea name={"refer"}></textarea>
+            </form>
         <Button variant={"primary"} onClick={handleShowModal} block={props.block} className={"draw-border zoom"}>
             Contact Us
         </Button>
