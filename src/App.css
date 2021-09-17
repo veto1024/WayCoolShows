@@ -7891,6 +7891,7 @@ body {
   margin-top: 10em; }
 
 .hero-row {
+  height: 500px;
   width: 100%; }
   .hero-row img {
     height: 100%;
@@ -7923,7 +7924,7 @@ body {
     width: 100%; }
     .hero-row img {
       height: 450px;
-      width: 250px; }
+      width: 100%; }
 
   #hero-pic-1 {
     background-image: url("assets/images/lg/hero1.jpg");
@@ -7992,6 +7993,14 @@ div#activities-box p {
 .fa {
   font-size: 2em;
   margin-right: 0.25em; }
+
+.fa.fa-flask {
+  color: white;
+  margin-right: 0; }
+
+.navbar-toggler {
+  border-color: white !important;
+  color: white !important; }
 
 /*************************************
            Fancy Button

@@ -10,7 +10,7 @@ export function SiteFooter(props) {
             <footer className={"container-fluid bg-success pt-3 pb-3"}>
                 <Container fluid >
                     <Row>
-                        <Col md={4} className={"footer-column footer-logo-col text-left"}>
+                        <Col md={4} xs={12} className={"footer-column footer-logo-col text-left"}>
                             <Row>
                                 <img id={"footer-logo"}
                                      alt={"Alt text"}
@@ -30,7 +30,7 @@ export function SiteFooter(props) {
                                 </div>
                             </Row>
                         </Col>
-                        <Col md={4} className={"footer-column footer-contact-col text-left"}>
+                        <Col md={4} xs={12} className={"footer-column footer-contact-col text-left"}>
                             <div>
                                 <i class="fa fa-instagram"></i>
                                 <a className={"text-white fun-text d-inline-block"} href={"https://instagram.com/coolscienceshows"}>Follow Us On IG!</a>
@@ -44,7 +44,7 @@ export function SiteFooter(props) {
                                 <p className={"text-white fun-text d-inline-block"}><a href="mailto:support@company.com">contact@coolscienceshows.com</a></p>
                             </div>
                         </Col>
-                        <Col md={4} className={"footer-column footer-about-col text-left"}>
+                        <Col md={4} xs={12} className={"footer-column footer-about-col text-left"}>
                             <Row>
                                 <span className={"fun-text"}>About Cool Science Shows</span>
                                 <p className={"text-muted"}>Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis

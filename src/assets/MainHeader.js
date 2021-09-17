@@ -13,19 +13,19 @@ export function MainHeader(props) {
 
     return (
         <Row  >
-            <Navbar id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"} fixed={"top"} className={""}>
+            <Navbar collapseOnSelect id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"} fixed={"top"} className={""}>
                 <Container fluid className={"mr-5 mt-3 mb-3"}>
                     <Navbar.Brand href={"#home"} >
                         <img id={"header-logo"}
                             alt={"Alt text"}
                             className={"d-inline-block align-top align-left"}
-                            // onLoad={handlePicLoaded}
                         />
                     </Navbar.Brand>
-                    <Row >
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" className={"mt-1"} />
-                        <Navbar.Collapse id={"basic-navbar-nav"}  >
-                            <Nav className="me-auto">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" className={"mt-1"}>
+                            <i className={"fa fa-flask"}></i>
+                        </Navbar.Toggle>
+                        <Navbar.Collapse id={"basic-navbar-nav"} data >
+                            <Nav className="ml-auto">
                                 <Nav.Link href={"#home"} className={"text-white fun-text text-uppercase"}>Home</Nav.Link>
                                 <NavDropdown title={"Shows"} id={"shows-dropdown"} className={"text-white fun-text text-uppercase"}>
                                     <NavDropdown.Item href="#birthday-box" className={"text-nitr"}>Birthday Parties</NavDropdown.Item>
@@ -36,7 +36,6 @@ export function MainHeader(props) {
                                 <Nav.Link href={""} className={"text-white fun-text text-uppercase"}>Contact Us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
-                    </Row>
                 </Container>
             </Navbar>
         </Row>

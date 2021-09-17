@@ -12,7 +12,6 @@ export function HeroPics(props) {
 
     function handlePicsLoaded() {
         changePicsLoaded(true)
-        console.log("Pics loaded")
     }
     function handlePicsMounted(s) {
         changeAllPicsVisible(true)
