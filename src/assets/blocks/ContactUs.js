@@ -56,7 +56,7 @@ export function ContactUs(props) {
             fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode({ "form-name": "contact", ...contactInfo })
+                body: encode({ "form-name": "contact-us", ...contactInfo })
             })
                 .then(() => changeShowSuccess(true))
                 .catch(error => alert(error));
@@ -130,7 +130,7 @@ export function ContactUs(props) {
                                                  required={!contactInfoGiven}
                                                  type={"phone"} placeholder="(xxx) xxx-xxxx" maxLength={14}
                                                  value={phone} name={"phone"}
-                                                 onChange={handleChangePhone}></FormControl>
+                                                 onChange={handleChangePhone}/>
                                     <Form.Text className="text-muted text-center text-left">
                                         We'll never share your email or phone # with anyone else.
                                     </Form.Text>
