@@ -4,12 +4,17 @@
 @import "../node_modules/bootstrap/scss/mixins/_breakpoints";
 @import "../node_modules/react-slideshow-image/dist/styles.css";
 @import "../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+
 
 $headerColor: #93ea93;
 $nitrogenSpectra: #42006e;
 $funText: "Bubblegum Sans";
 $verPic : "https://via.placeholder.com/250x600";
 $horPic : "https://via.placeholder.com/600x250";
+$vertHero1lg: url("assets/images/lg/hero1.jpg");
+$vertHero2lg: url("assets/images/lg/hero2.jpg");
+
 $fadeAlmostInOpacity: 0.9;
 $background: $dark;
 
@@ -18,6 +23,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y: scroll;
 }
 /**********************************************
             Typography
@@ -35,8 +41,20 @@ body {
   color: white !important;
 }
 
+.text-nitr {
+  color: $nitrogenSpectra !important;
+}
+
+.text-nitr a {
+  color: $nitrogenSpectra !important;
+}
+
 .text-orange {
   color: orange !important;
+}
+.fun-text-small {
+  font-family: $funText;
+  font-size: 1.0rem;
 }
 
 .fun-text {
@@ -63,14 +81,23 @@ body {
   }
 }
 
+.dropdown-toggle {
+  color:$headerColor;
+}
 
+.dropdown-item.text-nitr {
+  color: $nitrogenSpectra !important;
+}
 
+.anchor  {
+  scroll-margin-top: 12em
+}
 /**********************************************
            Content-related
 ***********************************************/
 
 #main-content-container {
-  margin-top: 100px;
+  margin-top: 10em;
 }
 .hero-row {
   //height: 500px;
@@ -88,7 +115,7 @@ body {
 }
 
 #hero-pic-1 {
-  background-image: url($horPic);
+  content: $vertHero1lg;
   background-size: contain;
 }
 #hero-pic-2 {
@@ -110,18 +137,18 @@ body {
     height:500px;
     width:100%;
     img {
-      height:100%;
-      width:100%;
+      height:450px;
+      width:250px;
     }
   }
 
     #hero-pic-1 {
-      background-image: url($verPic);
-      background-size: contain;
+      background-image: $vertHero1lg;
+      background-size: cover;
     }
     #hero-pic-2 {
-      background-image: url($verPic);
-      background-size: contain;
+      background-image: $vertHero2lg;
+      background-size: cover;
     }
     #hero-pic-3 {
       background-image: url($verPic);
@@ -137,6 +164,14 @@ body {
   background-color: $nitrogenSpectra;
   font-size: 1rem;
 }
+
+#main-navbar #header-logo, #footer-logo {
+  content: url("assets/images/lg/cooltransp200.png");
+  height: 100px;
+  width: 200px;
+  background-size: contain;
+}
+
 
 button.btn {
   font-size:2rem;
@@ -163,6 +198,38 @@ img.img-fit-width {
 }
 div#activities-box p {
   height: 2rem;
+}
+
+
+
+/*************************************
+           Footer
+******************************** */
+
+.footer-column.footer-contact-col a {
+  text-decoration: none !important;
+}
+.footer-column .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-column .footer-links .link-1:before {
+  content: none;
+}
+
+.fa {
+  font-size: 2em;
+  margin-right: 0.25em;
+}
+
+.footer-about-col {
+
 }
 
 /*************************************
