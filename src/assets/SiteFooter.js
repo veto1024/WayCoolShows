@@ -1,5 +1,5 @@
-import React, {Component, useState} from 'react'
-import {Col, Row, Container, ListGroup, ListGroupItem, NavLink, NavItem, Navbar} from 'react-bootstrap';
+import React from 'react'
+import {Col, Row, Container} from 'react-bootstrap';
 
 
 export function SiteFooter(props) {
@@ -21,11 +21,11 @@ export function SiteFooter(props) {
                             <Row>
                                 <div className={"footer-logo-links mt-2"}>
                                     <p className="footer-links fun-text">
-                                        <a href="#" className="link-1">Home</a>
-                                        <a href="#">Birthday Parties</a>
-                                        <a href="#">Schools</a>
-                                        <a href="#">Activities</a>
-                                        <a href="#">Contact Us</a>
+                                        <a href="#home" className="link-1">Home</a>
+                                        <a href="#birthday-box">Birthday Parties</a>
+                                        <a href="#schools-box">Schools</a>
+                                        <a href="#activities-box">Activities</a>
+                                        <a href="#contact">Contact Us</a>
                                     </p>
                                 </div>
                             </Row>

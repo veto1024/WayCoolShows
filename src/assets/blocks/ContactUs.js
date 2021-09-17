@@ -1,5 +1,5 @@
 import {Col, Container, Row, Modal, Form, Button, FormControl, FormGroup} from "react-bootstrap";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {normalizeInput} from "../normalizeInput";
 import validator from 'validator';
 

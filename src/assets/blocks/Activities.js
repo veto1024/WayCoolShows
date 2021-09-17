@@ -1,5 +1,5 @@
-import {ListGroup, ListGroupItem, Col, Container, Row, Table} from "react-bootstrap";
-import React, {useEffect, useState} from "react";
+import {Col, Container, Row, Table} from "react-bootstrap";
+import React from "react";
 import {CSSTransition} from "react-transition-group";
 import {Fade} from "react-slideshow-image";
 
@@ -62,17 +62,17 @@ return (
                                 <Fade {...fadeProperties}>
                                     <div className="each-fade">
                                         <div>
-                                            <img src={fadeImages[0]} />
+                                            <img src={fadeImages[0]} alt={''}/>
                                         </div>
                                     </div>
                                     <div className="each-fade">
                                         <div>
-                                            <img src={fadeImages[1]} />
+                                            <img src={fadeImages[1]} alt={''}/>
                                         </div>
                                     </div>
                                     <div className="each-fade">
                                         <div>
-                                            <img src={fadeImages[2]} />
+                                            <img src={fadeImages[2]} alt={''} />
                                         </div>
                                     </div>
                                 </Fade>

@@ -1,19 +1,19 @@
-import React, {Component, useEffect, useState} from 'react'
-import {Card, Col, Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstrap';
+import React from 'react'
+import { Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstrap';
 
 export function MainHeader(props) {
-    const [picLoaded, changePicLoaded] = useState(false)
-    const [loaded, changeLoaded] = useState(true)
-
-
-    function handlePicLoaded(s) {
-        changeLoaded(true)
-        props.onContentMounted(true)
-    }
+    // const [picLoaded, changePicLoaded] = useState(false)
+    // const [loaded, changeLoaded] = useState(true)
+    //
+    //
+    // function handlePicLoaded(s) {
+    //     changeLoaded(true)
+    //     props.onContentMounted(true)
+    // }
 
     return (
         <Row  >
-            <Navbar collapseOnSelect id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"} fixed={"top"} className={""}>
+            <Navbar collapseOnSelect id={"main-navbar"}  expand={"lg"} fixed={"top"} className={""}>
                 <Container fluid className={"mr-5 mt-3 mb-3"}>
                     <Navbar.Brand href={"#home"} >
                         <img id={"header-logo"}

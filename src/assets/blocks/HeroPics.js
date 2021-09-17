@@ -1,6 +1,6 @@
 import { Col, Container, Row, Image} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 
 export function HeroPics(props) {
     const [pic1Visible, changePic1Visible] = useState(false)
@@ -8,12 +8,12 @@ export function HeroPics(props) {
     const [pic3Visible, changePic3Visible] = useState(false)
     const [pic4Visible, changePic4Visible] = useState(false)
     const [allPicsVisible, changeAllPicsVisible] = useState(false)
-    const [picsLoaded, changePicsLoaded] = useState(false)
-
-    function handlePicsLoaded() {
-        changePicsLoaded(true)
-    }
-    function handlePicsMounted(s) {
+    // const [picsLoaded, changePicsLoaded] = useState(false)
+    //
+    // function handlePicsLoaded() {
+    //     changePicsLoaded(true)
+    // }
+    function handlePicsMounted() {
         changeAllPicsVisible(true)
         props.onPicsMounted(true)
     }
@@ -49,7 +49,7 @@ export function HeroPics(props) {
                         <CSSTransition in={pic4Visible} classNames={"slideDownFadeIn"} timeout={2750}
                                        onEntered={handlePicsMounted}>
                             <Col key={4} lg={3} style={{animationDelay: "750ms"}} className={"mb-2"}>
-                                <Image onLoad={handlePicsLoaded}  id={"hero-pic-4"}/>
+                                <Image   id={"hero-pic-4"}/>
                             </Col>
                         </CSSTransition>
                 </Row>
