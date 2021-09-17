@@ -1,4 +1,4 @@
-import {ListGroup, ListGroupItem, Col, Container, Row, Image} from "react-bootstrap";
+import {Col, Container, Row, Image} from "react-bootstrap";
 import React from "react";
 import {CSSTransition} from "react-transition-group";
 

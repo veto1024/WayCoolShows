@@ -1,6 +1,6 @@
 import { Col, Container, Row, Image} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 
 export function HeroPics(props) {
     const [pic1Visible, changePic1Visible] = useState(false)
@@ -8,12 +8,12 @@ export function HeroPics(props) {
     const [pic3Visible, changePic3Visible] = useState(false)
     const [pic4Visible, changePic4Visible] = useState(false)
     const [allPicsVisible, changeAllPicsVisible] = useState(false)
-    const [picsLoaded, changePicsLoaded] = useState(false)
+    // const [picsLoaded, changePicsLoaded] = useState(false)
 
-    function handlePicsLoaded() {
-        changePicsLoaded(true)
-    }
-    function handlePicsMounted(s) {
+    // function handlePicsLoaded() {
+    //     changePicsLoaded(true)
+    // }
+    function handlePicsMounted() {
         changeAllPicsVisible(true)
         props.onPicsMounted(true)
     }

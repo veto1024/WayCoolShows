@@ -1,5 +1,5 @@
-import React, {Component, useEffect, useState} from 'react'
-import {Card, Col, Button, Row, Navbar, Container} from 'react-bootstrap';
+import React, {useEffect, useState} from 'react'
+import {Row,  Container} from 'react-bootstrap';
 import {Birthday} from "./blocks/Birthday";
 import {School} from "./blocks/School";
 import {HeroPics} from "./blocks/HeroPics";

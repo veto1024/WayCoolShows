@@ -1,15 +1,15 @@
-import React, {Component, useEffect, useState} from 'react'
-import {Card, Col, Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstrap';
+import React, { useState} from 'react'
+import { Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstrap';
 
 export function MainHeader(props) {
-    const [picLoaded, changePicLoaded] = useState(false)
-    const [loaded, changeLoaded] = useState(true)
-
-
-    function handlePicLoaded(s) {
-        changeLoaded(true)
-        props.onContentMounted(true)
-    }
+    // const [picLoaded, changePicLoaded] = useState(false)
+    // const [loaded, changeLoaded] = useState(true)
+    //
+    //
+    // function handlePicLoaded(s) {
+    //     changeLoaded(true)
+    //     props.onContentMounted(true)
+    // }
 
     return (
         <Row  >
