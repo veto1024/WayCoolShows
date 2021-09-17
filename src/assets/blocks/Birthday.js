@@ -15,7 +15,7 @@ export function Birthday(props) {
 
 return (
         <CSSTransition classNames={"fade"} in={isMounted} timeout={2000} onEntered={props.onMounted(true)}>
-            <Row id={"birthday-box"} className={"border rounded mt-5 mb-3"}>
+            <Row id={"birthday-box"} className={"anchor border rounded mt-5 mb-3"}>
                 <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                     <Row className={"mt-3 fun-text-largest"}>
                         <p>Birthday Parties</p>

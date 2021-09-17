@@ -7,7 +7,7 @@ export function School(props) {
 
 return (
     <CSSTransition classNames={"fade"} timeout={2000} onEntered={props.onMounted(true)}>
-        <Row id={"school-box"} className={"border rounded mt-3 mb-3"}>
+        <Row id={"school-box"} className={"anchor border rounded mt-3 mb-3"}>
             <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                 <Row className={"mt-3 fun-text-largest"}>
                     <p>Schools and Libraries</p>

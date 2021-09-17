@@ -3,7 +3,7 @@ import {Card, Col, Nav, Row, Navbar, Container, NavDropdown} from 'react-bootstr
 
 export function MainHeader(props) {
     const [picLoaded, changePicLoaded] = useState(false)
-    const [loaded, changeLoaded] = useState(false)
+    const [loaded, changeLoaded] = useState(true)
 
 
     function handlePicLoaded(s) {
@@ -16,11 +16,10 @@ export function MainHeader(props) {
             <Navbar id={"main-navbar"} style={loaded ? {} : {display: 'none'}} expand={"lg"} fixed={"top"} className={""}>
                 <Container fluid className={"mr-5 mt-3 mb-3"}>
                     <Navbar.Brand href={"#home"} >
-                        <img
+                        <img id={"header-logo"}
                             alt={"Alt text"}
-                            src={"https://via.placeholder.com/300x50"}
                             className={"d-inline-block align-top align-left"}
-                            onLoad={handlePicLoaded}
+                            // onLoad={handlePicLoaded}
                         />
                     </Navbar.Brand>
                     <Row >
@@ -29,8 +28,8 @@ export function MainHeader(props) {
                             <Nav className="me-auto">
                                 <Nav.Link href={"#home"} className={"text-white fun-text text-uppercase"}>Home</Nav.Link>
                                 <NavDropdown title={"Shows"} id={"shows-dropdown"} className={"text-white fun-text text-uppercase"}>
-                                    <NavDropdown.Item href="#birthday-box">Birthday Parties</NavDropdown.Item>
-                                    <NavDropdown.Item href="#school-box">Schools</NavDropdown.Item>
+                                    <NavDropdown.Item href="#birthday-box" className={"text-nitr"}>Birthday Parties</NavDropdown.Item>
+                                    <NavDropdown.Item href="#school-box" className={"text-nitr"}>Schools</NavDropdown.Item>
                                 </NavDropdown>
                                 <Nav.Link href={"#activities-box"} className={"text-white fun-text text-uppercase"}>Activities</Nav.Link>
                                 <Nav.Link href={"#about-me-box"} className={"text-white fun-text text-uppercase"}>About</Nav.Link>

@@ -7,6 +7,7 @@
  */
 @import url(../node_modules/react-slideshow-image/dist/styles.css);
 @import url(../node_modules/react-responsive-carousel/lib/styles/carousel.min.css);
+@import url(../node_modules/font-awesome/css/font-awesome.min.css);
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7826,7 +7827,8 @@ body {
   background-image: url("assets/images/main-back-90.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  overflow-y: scroll; }
 
 /**********************************************
             Typography
@@ -7840,8 +7842,18 @@ body {
 .text-white a {
   color: white !important; }
 
+.text-nitr {
+  color: #42006e !important; }
+
+.text-nitr a {
+  color: #42006e !important; }
+
 .text-orange {
   color: orange !important; }
+
+.fun-text-small {
+  font-family: "Bubblegum Sans";
+  font-size: 1.0rem; }
 
 .fun-text {
   font-family: "Bubblegum Sans";
@@ -7863,11 +7875,20 @@ body {
     left: 25%;
     transform: translate(-25%, -50%); } }
 
+.dropdown-toggle {
+  color: #93ea93; }
+
+.dropdown-item.text-nitr {
+  color: #42006e !important; }
+
+.anchor {
+  scroll-margin-top: 12em; }
+
 /**********************************************
            Content-related
 ***********************************************/
 #main-content-container {
-  margin-top: 100px; }
+  margin-top: 10em; }
 
 .hero-row {
   width: 100%; }
@@ -7881,7 +7902,7 @@ body {
         height: 12.5vh; } }
 
 #hero-pic-1 {
-  background-image: url("https://via.placeholder.com/600x250");
+  content: url("assets/images/lg/hero1.jpg");
   background-size: contain; }
 
 #hero-pic-2 {
@@ -7901,16 +7922,16 @@ body {
     height: 500px;
     width: 100%; }
     .hero-row img {
-      height: 100%;
-      width: 100%; }
+      height: 450px;
+      width: 250px; }
 
   #hero-pic-1 {
-    background-image: url("https://via.placeholder.com/250x600");
-    background-size: contain; }
+    background-image: url("assets/images/lg/hero1.jpg");
+    background-size: cover; }
 
   #hero-pic-2 {
-    background-image: url("https://via.placeholder.com/250x600");
-    background-size: contain; }
+    background-image: url("assets/images/lg/hero2.jpg");
+    background-size: cover; }
 
   #hero-pic-3 {
     background-image: url("https://via.placeholder.com/250x600");
@@ -7922,6 +7943,12 @@ body {
 #main-navbar {
   background-color: #42006e;
   font-size: 1rem; }
+
+#main-navbar #header-logo, #footer-logo {
+  content: url("assets/images/lg/cooltransp200.png");
+  height: 100px;
+  width: 200px;
+  background-size: contain; }
 
 button.btn {
   font-size: 2rem; }
@@ -7943,6 +7970,28 @@ img.img-fit-width {
 
 div#activities-box p {
   height: 2rem; }
+
+/*************************************
+           Footer
+******************************** */
+.footer-column.footer-contact-col a {
+  text-decoration: none !important; }
+
+.footer-column .footer-links a:before {
+  content: "|";
+  font-weight: 300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px; }
+
+.footer-column .footer-links .link-1:before {
+  content: none; }
+
+.fa {
+  font-size: 2em;
+  margin-right: 0.25em; }
 
 /*************************************
            Fancy Button

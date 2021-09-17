@@ -38,7 +38,7 @@ export function Activities(props) {
 
 return (
         <CSSTransition classNames={"fade"} timeout={2000}>
-            <Row id={"activities-box"} className={"border rounded mt-5 mb-3"}>
+            <Row id={"activities-box"} className={" anchor border rounded mt-5 mb-3"}>
                 <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                     <Row className={"mt-3 fun-text-largest mb-2"}>
                         <p>Activities</p>
