@@ -3,6 +3,12 @@ import React, {useState} from "react";
 import {normalizeInput} from "../normalizeInput";
 import validator from 'validator';
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+
 export function ContactUs(props) {
     const [showModal, setShowModal] = useState(false)
     const [phone, changePhone] = useState(null)
@@ -14,6 +20,12 @@ export function ContactUs(props) {
     const [emailInvalid, changeEmailInvalid] = useState(null)
     const [validated, changeValidated] = useState(false)
     const [showSuccess, changeShowSuccess] = useState(false)
+    const [contactInfo, changeContactInfo] = useState({
+        name: '',
+        descr: '',
+        refer: '',
+    })
+
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
@@ -21,12 +33,34 @@ export function ContactUs(props) {
         block:false,
     }
 
+    const handleChange = (event) => {
+        let value = event.target.value
+        let name = event.target.name
+
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                [name]: value
+            }
+        })
+    }
+
+
+
     function handleSubmit(s) {
         const form = s.currentTarget;
         s.preventDefault();
         s.stopPropagation();
         if (form.checkValidity() === true) {
-            changeShowSuccess(true)
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({ "form-name": "contact", ...contactInfo })
+            })
+                .then(() => changeShowSuccess(true))
+                .catch(error => alert(error));
+
         }
         changeValidated(true);
     }
@@ -83,7 +117,8 @@ export function ContactUs(props) {
                     <Form noValidate validated={validated} onSubmit={handleSubmit} name={"contact-us"} data-netlify={true} >
                         <Form.Group className={"mb-3"} controlId="contactForm.ControlInput1">
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control required type={"text"} placeholder="Name" />
+                                <Form.Control required type={"text"} placeholder="Name" name={"name"}
+                                              onChange={handleChange} />
                             </Col>
                             <Col xs={12} className={"my-2"}>
                                 <FormGroup>
@@ -120,10 +155,14 @@ export function ContactUs(props) {
                         </Form.Group>
                         <Form.Group  className={"mb-3 no-validate"} controlId={"contactForm.ControlInput3"} >
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as="textarea" id={"request_text"} rows={3} placeholder={"Details of your request."}/>
+                                <Form.Control as="textarea" id={"request_text"} rows={3} name={"descr"}
+                                              onChange={handleChange}
+                                              placeholder={"Details of your request."}/>
                             </Col>
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} placeholder={"How did you hear about us? (Friend, teacher, online, etc.)"}/>
+                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} name={"refer"}
+                                              placeholder={"How did you hear about us? (Friend, teacher, online, etc.)"}
+                                              onChange={handleChange}/>
                             </Col>
 
                         </Form.Group>
