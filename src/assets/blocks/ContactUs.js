@@ -101,11 +101,6 @@ export function ContactUs(props) {
 
     return (
         <div>
-            <form name={"contact-us"} method="POST" data-netlify={"true"} netlify-honeypot={"bot-field"} hidden>
-                <input type={"hidden"} name={"name"}/>
-                <textarea name={"descr"}></textarea>
-                <textarea name={"refer"}></textarea>
-            </form>
         <Button variant={"primary"} onClick={handleShowModal} block={props.block} className={"draw-border zoom"}>
             Contact Us
         </Button>
