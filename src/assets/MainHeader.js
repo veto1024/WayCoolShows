@@ -26,7 +26,7 @@ export function MainHeader(props) {
                         </Navbar.Toggle>
                         <Navbar.Collapse id={"basic-navbar-nav"} data >
                             <Nav className="ml-auto">
-                                <Nav.Link href={"#callout-box"} className={"text-white fun-text text-uppercase"}>Home</Nav.Link>
+                                <Nav.Link href={"#home"} className={"text-white fun-text text-uppercase"}>Home</Nav.Link>
                                 <NavDropdown title={"Shows"} id={"shows-dropdown"} className={"text-white fun-text text-uppercase"}>
                                     <NavDropdown.Item href="#birthday-box" className={"text-nitr"}>Birthday Parties</NavDropdown.Item>
                                     <NavDropdown.Item href="#school-box" className={"text-nitr"}>Schools</NavDropdown.Item>
