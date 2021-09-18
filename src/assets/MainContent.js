@@ -51,11 +51,11 @@ export function MainCallout(props) {
 
     return (
         <CSSTransition in={mount} classNames={"fade"} timeout={2000}>
-            <Row id={"box-1"} className={"border rounded"}>
+            <Row id={"callout-box"} className={"border anchor rounded"}>
                 <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                     <Row className={"mt-3"}>
-                        <p className={"fun-text-larger"}>Educational and fun liquid nitrogen demonstrations for your party or school. </p>
-                        <p className={"fun-text"}>An interactive and safe learning experience for children of all ages.
+                        <p className={"fun-text-larger"}>Educational and fun liquid nitrogen demonstrations for your party or school! </p>
+                        <p className={"fun-text"}>An interactive and safe learning experience for children of all ages!
                         </p>
                     </Row>
                     <Row className={"mb-3"}>

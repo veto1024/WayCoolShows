@@ -7824,11 +7824,25 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 body {
-  background-image: url("assets/images/main-back-90.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background-image: url("assets/images/xs/nitroback_xs.jpg"); }
+  @media (min-width: 992px) {
+    body {
+      background-image: url("assets/images/lg/nitroback_xl.jpg"); } }
+
+/****************************
+    Imagery
+************************* */
+.party-box-image {
+  background-image: url("assets/images/xs/bparty_xs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  @media (min-width: 992px) {
+    .party-box-image {
+      background-image: url("assets/images/lg/bparty_xl.jpg"); } }
 
 /**********************************************
             Typography
