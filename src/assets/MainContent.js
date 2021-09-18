@@ -7,7 +7,7 @@ import {ContactUs} from "./blocks/ContactUs";
 import {CSSTransition} from "react-transition-group";
 import {AboutMe} from "./blocks/AboutMe";
 import {Activities} from "./blocks/Activities";
-import {Testimonials} from "./blocks/Testimonials";
+//import {Testimonials} from "./blocks/Testimonials";
 
 export function MainContent(props) {
     const [heroMounted, changeHeroMounted] = useState(false)
