@@ -1,4 +1,4 @@
-import {ListGroup, ListGroupItem, Col, Container, Row, Image} from "react-bootstrap";
+import { Col, Container, Row, Image} from "react-bootstrap";
 import React from "react";
 import {CSSTransition} from "react-transition-group";
 import {ContactUs} from "./ContactUs";
@@ -18,7 +18,6 @@ return (
                 <Row className={"mb-3"}>
                     <Col lg={8} className={"fun-text text-left"}>
                         <section className={"text-left"} >
-                            <p></p>
                             <p>Great for summer camps, youth groups, and more! </p>
                             <p>Program options available for K-12!</p>
                             <p>Cost: $225 </p>

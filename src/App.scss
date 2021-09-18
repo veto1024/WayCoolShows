@@ -15,7 +15,7 @@ $horPic : "https://via.placeholder.com/600x250";
 $vertHero1lg: url("assets/images/lg/hero1.jpg");
 $vertHero2lg: url("assets/images/lg/hero3.jpg");
 $vertHero3lg: url("assets/images/lg/hero2.jpg");
-$vertHero4lg: url("assets/images/lg/hero2.jpg");
+$vertHero4lg: url("assets/images/lg/flower_xl.jpg");
 
 
 $fadeAlmostInOpacity: 0.9;
@@ -202,11 +202,11 @@ body {
     }
     #hero-pic-3 {
       background-image: $vertHero3lg;
-      background-size: contain;
+      background-size: cover;
     }
     #hero-pic-4 {
       background-image: $vertHero4lg;
-      background-size: contain;
+      background-size: cover;
     }
   }
 

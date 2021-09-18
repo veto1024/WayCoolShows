@@ -1,14 +1,13 @@
 import {Col, Container, Row, Table} from "react-bootstrap";
 import React from "react";
 import {CSSTransition} from "react-transition-group";
-import {Fade} from "react-slideshow-image";
 
 export function Activities(props) {
-    const fadeImages = [
-        'https://via.placeholder.com/300x300/0000FF/808080',
-        'https://via.placeholder.com/300x300/FF0000/FFFFFF',
-        'https://via.placeholder.com/300x300/FFFF00/000000',
-    ];
+    // const fadeImages = [
+    //     'https://via.placeholder.com/300x300/0000FF/808080',
+    //     'https://via.placeholder.com/300x300/FF0000/FFFFFF',
+    //     'https://via.placeholder.com/300x300/FFFF00/000000',
+    // ];
 
     const activities = [
         ["Safety", "-320F,77K/ water balloon glove"],
@@ -27,13 +26,13 @@ export function Activities(props) {
     ]
 
 
-    const fadeProperties = {
-        duration: 2000,
-        arrows: false,
-        transitionDuration: 500,
-        infinite: true,
-        indicators: false,
-    }
+    // const fadeProperties = {
+    //     duration: 2000,
+    //     arrows: false,
+    //     transitionDuration: 500,
+    //     infinite: true,
+    //     indicators: false,
+    // }
 
 
 return (

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
 import {Row,  Container, Col} from 'react-bootstrap';
 import {Birthday} from "./blocks/Birthday";
 import {School} from "./blocks/School";
@@ -13,6 +13,8 @@ export function MainContent(props) {
     const [heroMounted, changeHeroMounted] = useState(false)
     const [calloutMounted, changeCalloutMounted] = useState(false)
     const [birthdayMounted, changeBirthdayMounted] = useState(false)
+    const [isMobile, changeIsMobile] = useState(null)
+    const [mobileChecked, changeMobileChecked] = useState(false)
 
     function handleHeroPicsMounted(s) {
         changeHeroMounted(true)
@@ -26,12 +28,21 @@ export function MainContent(props) {
         changeBirthdayMounted(true)
         props.onContentMounted(true)
     }
+    const mql = window.matchMedia("(max-width: 992px)");
+
+    useLayoutEffect( () => {
+        if (mql.matches) {
+            changeIsMobile(true)
+        } else {
+            changeIsMobile(false)
+        }
+    }, [])
 
     return(
         <Container id={"main-content-container"} className={"rounded"}>
-            <HeroPics onPicsMounted={handleHeroPicsMounted}/>
+            {isMobile ? '' : <HeroPics onPicsMounted={handleHeroPicsMounted}/>}
 
-            {heroMounted ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
+            {heroMounted || isMobile ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
             {calloutMounted ? <Birthday onMounted={handleBirthdayMounted}/> : ''}
             {birthdayMounted ? <School onMounted={() => null}/> : ''}
             {birthdayMounted ? <Activities /> : ''}

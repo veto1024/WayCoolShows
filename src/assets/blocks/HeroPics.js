@@ -21,13 +21,7 @@ export function HeroPics(props) {
     }, [allPicsVisible])
 
     useEffect( () => {
-        const mql = window.matchMedia("(max-width: 992px)");
-        if (mql.matches) {
-            //handlePicsMounted()
-            props.onPicsMounted(true)
-        } else {
             changePic1Visible(true)
-        }
     }, [])
 
     return (

@@ -7971,11 +7971,11 @@ body {
 
   #hero-pic-3 {
     background-image: url("assets/images/lg/hero2.jpg");
-    background-size: contain; }
+    background-size: cover; }
 
   #hero-pic-4 {
-    background-image: url("assets/images/lg/hero2.jpg");
-    background-size: contain; } }
+    background-image: url("assets/images/lg/flower_xl.jpg");
+    background-size: cover; } }
 #main-navbar {
   background-color: #28a745;
   font-size: 1rem; }
