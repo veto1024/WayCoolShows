@@ -7833,16 +7833,32 @@ body {
     body {
       background-image: url("assets/images/lg/nitroback_xl.jpg"); } }
 
+#about-me-pic {
+  height: 500px;
+  background-image: url("assets/images/xs/about_me.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 /****************************
     Imagery
 ************************* */
 .party-box-image {
   background-image: url("assets/images/xs/bparty_xs.jpg");
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-position: center; }
   @media (min-width: 992px) {
     .party-box-image {
       background-image: url("assets/images/lg/bparty_xl.jpg"); } }
+
+.school-box-image {
+  background-image: url("assets/images/xs/school.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+  @media (min-width: 992px) {
+    .school-box-image {
+      background-image: url("assets/images/xs/school.jpg"); } }
 
 /**********************************************
             Typography
@@ -7857,10 +7873,10 @@ body {
   color: white !important; }
 
 .text-nitr {
-  color: #42006e !important; }
+  color: #28a745 !important; }
 
 .text-nitr a {
-  color: #42006e !important; }
+  color: #28a745 !important; }
 
 .text-orange {
   color: orange !important; }
@@ -7893,7 +7909,7 @@ body {
   color: #93ea93; }
 
 .dropdown-item.text-nitr {
-  color: #42006e !important; }
+  color: #28a745 !important; }
 
 .anchor {
   scroll-margin-top: 12em; }
@@ -7916,6 +7932,11 @@ body {
       .hero-row div {
         height: 12.5vh; } }
 
+@media (max-width: 1199.98px) {
+  #hero-row {
+    display: none;
+    visibility: hidden;
+    height: 0; } }
 #hero-pic-1 {
   background-image: url("https://via.placeholder.com/600x250");
   background-size: contain; }
@@ -7945,18 +7966,18 @@ body {
     background-size: cover; }
 
   #hero-pic-2 {
-    background-image: url("assets/images/lg/hero2.jpg");
+    background-image: url("assets/images/lg/hero3.jpg");
     background-size: cover; }
 
   #hero-pic-3 {
-    background-image: url("https://via.placeholder.com/250x600");
+    background-image: url("assets/images/lg/hero2.jpg");
     background-size: contain; }
 
   #hero-pic-4 {
-    background-image: url("https://via.placeholder.com/250x600");
+    background-image: url("assets/images/lg/hero2.jpg");
     background-size: contain; } }
 #main-navbar {
-  background-color: #42006e;
+  background-color: #28a745;
   font-size: 1rem; }
 
 #main-navbar #header-logo, #footer-logo {
@@ -7977,6 +7998,9 @@ button.btn {
     text-align: left; }
 
 .party-box-image {
+  height: 500px; }
+
+.school-box-image {
   height: 500px; }
 
 img.img-fit-width {
@@ -8223,7 +8247,7 @@ div#activities-box p {
     animation: slideDownFadeIn 2s ease-out; } }
 @media (max-width: 1199.98px) {
   .slideDownFadeIn-enter-active {
-    animation: slideRightFadeIn 2s ease-out; } }
+    animation: slideRightFadeIn 0s ease-out; } }
 
 .slideDownFadeIn-enter-done {
   opacity: 0.9 !important; }

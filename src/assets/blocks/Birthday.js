@@ -41,8 +41,7 @@ return (
                         <Col lg={4} className={"requirement-block"}>
                             <h1 className={"fun-text-large"}>Requirements</h1>
                             <p className={"fun-text"}>Appropriate for all ages!</p>
-                            <p className={"fun-text"}>Chairs for your butt</p>
-                            <p className={"fun-text"}>Outdoor or well-ventilated setting</p>
+                            <p className={"fun-text"}>Outdoor or well-ventilated setting with room for children to sit</p>
                             <p className={"fun-text"}>Allow 45 minutes for setup and take down</p>
                             {/*<ListGroup variant={"flush"}>*/}
                             {/*    <ListGroupItem>Appropriate for all ages!</ListGroupItem>*/}

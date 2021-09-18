@@ -8,12 +8,15 @@
 
 
 $headerColor: #93ea93;
-$nitrogenSpectra: #42006e;
+$nitrogenSpectra: #28a745;
 $funText: "Bubblegum Sans";
 $verPic : "https://via.placeholder.com/250x600";
 $horPic : "https://via.placeholder.com/600x250";
 $vertHero1lg: url("assets/images/lg/hero1.jpg");
-$vertHero2lg: url("assets/images/lg/hero2.jpg");
+$vertHero2lg: url("assets/images/lg/hero3.jpg");
+$vertHero3lg: url("assets/images/lg/hero2.jpg");
+$vertHero4lg: url("assets/images/lg/hero2.jpg");
+
 
 $fadeAlmostInOpacity: 0.9;
 $background: $dark;
@@ -31,6 +34,14 @@ body {
 }
 
 
+#about-me-pic {
+  height:500px;
+  background-image: url("assets/images/xs/about_me.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
 /****************************
     Imagery
 ************************* */
@@ -38,9 +49,21 @@ body {
   background-image: url("assets/images/xs/bparty_xs.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   @include media-breakpoint-up(lg) {
     background-image: url("assets/images/lg/bparty_xl.jpg");
   }
+
+}
+.school-box-image {
+  background-image: url("assets/images/xs/school.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include media-breakpoint-up(lg) {
+    background-image: url("assets/images/xs/school.jpg");
+  }
+
 }
 
 
@@ -132,6 +155,14 @@ body {
     }
   }
 }
+@include media-breakpoint-down(lg) {
+  #hero-row {
+    display: none;
+    visibility: hidden;
+    height: 0;
+  }
+
+}
 
 #hero-pic-1 {
   background-image: url($horPic);
@@ -170,11 +201,11 @@ body {
       background-size: cover;
     }
     #hero-pic-3 {
-      background-image: url($verPic);
+      background-image: $vertHero3lg;
       background-size: contain;
     }
     #hero-pic-4 {
-      background-image: url($verPic);
+      background-image: $vertHero4lg;
       background-size: contain;
     }
   }
@@ -208,6 +239,10 @@ button.btn {
 }
 
 .party-box-image {
+  height: 500px;
+}
+
+.school-box-image {
   height: 500px;
 }
 
@@ -521,7 +556,7 @@ div#activities-box p {
     animation: slideDownFadeIn 2s ease-out;
   }
   @include media-breakpoint-down(lg) {
-    animation: slideRightFadeIn 2s ease-out;
+    animation: slideRightFadeIn 0s ease-out;
   }
 }
 

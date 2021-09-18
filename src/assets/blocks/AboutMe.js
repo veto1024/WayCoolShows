@@ -13,8 +13,8 @@ export function AboutMe() {
                     </Row>
                     <Row className={"show-box-row"}>
                         <Col xs={{span:8, offset:2}} lg={{span:6, offset:0}} className={"mt-3"}>
-                            <div>
-                                <Image rounded className={"img-fit-width"} src={"https://via.placeholder.com/400x400"} />
+                            <div id={"about-me-pic"}>
+                                <Image rounded className={"img-fit-width"} />
                             </div>
 
                         </Col>

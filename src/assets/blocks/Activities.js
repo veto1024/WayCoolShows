@@ -44,7 +44,7 @@ return (
                         <p>Activities</p>
                     </Row>
                     <Row className={"show-box-row"}>
-                        <Col xs={{span:10, offset:1}} lg={{span:7, offset:0}} className={"norm-text"}>
+                        <Col xs={{span:10, offset:1}} lg={{span:10, offset:1}} className={"norm-text"}>
                             <Row>
                                 <Table borderless striped={false}>
                                     {activities.map((activity)  =>
@@ -57,28 +57,27 @@ return (
                                 </Table>
                             </Row>
                         </Col>
-                        <Col xs={{span:10, offset:1}} lg={{span:5, offset:0}}>
-                            <div className="slide-container">
-                                <Fade {...fadeProperties}>
-                                    <div className="each-fade">
-                                        <div>
-                                            <img src={fadeImages[0]} alt={''}/>
-                                        </div>
-                                    </div>
-                                    <div className="each-fade">
-                                        <div>
-                                            <img src={fadeImages[1]} alt={''}/>
-                                        </div>
-                                    </div>
-                                    <div className="each-fade">
-                                        <div>
-                                            <img src={fadeImages[2]} alt={''} />
-                                        </div>
-                                    </div>
-                                </Fade>
-                            </div>
-
-                        </Col>
+                        {/*<Col xs={{span:10, offset:1}} lg={{span:5, offset:0}}>*/}
+                        {/*    <div className="slide-container">*/}
+                        {/*        <Fade {...fadeProperties}>*/}
+                        {/*            <div className="each-fade">*/}
+                        {/*                <div>*/}
+                        {/*                    <img src={fadeImages[0]} alt={''}/>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*            <div className="each-fade">*/}
+                        {/*                <div>*/}
+                        {/*                    <img src={fadeImages[1]} alt={''}/>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*            <div className="each-fade">*/}
+                        {/*                <div>*/}
+                        {/*                    <img src={fadeImages[2]} alt={''} />*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </Fade>*/}
+                        {/*    </div>*/}
+                        {/*</Col>*/}
                     </Row>
                 </Container>
             </Row>

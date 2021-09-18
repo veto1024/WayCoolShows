@@ -21,11 +21,17 @@ export function HeroPics(props) {
     }, [allPicsVisible])
 
     useEffect( () => {
-        changePic1Visible(true)
+        const mql = window.matchMedia("(max-width: 992px)");
+        if (mql.matches) {
+            //handlePicsMounted()
+            props.onPicsMounted(true)
+        } else {
+            changePic1Visible(true)
+        }
     }, [])
 
     return (
-        <Row>
+        <Row id={"hero-row"}>
             <Container fluid className={"mt-3 mb-3 pt-3 pb-3 "}  style={pic4Visible ? {} : {display: 'none'}}>
                 <Row className={`hero-row mx-0`}>
                         <CSSTransition in={pic1Visible} classNames={`slideDownFadeIn`} timeout={2000}
