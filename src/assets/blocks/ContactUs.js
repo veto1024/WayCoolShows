@@ -11,19 +11,20 @@ const encode = (data) => {
 
 export function ContactUs(props) {
     const [showModal, setShowModal] = useState(false)
-    const [phone, changePhone] = useState(null)
     const [phoneValid, changePhoneValid] = useState(null)
     const [phoneInvalid, changePhoneInvalid] = useState(null)
     const [contactInfoGiven, changeContactInfoGiven] = useState(false)
-    const [email, changeEmail] = useState(null)
     const [emailValid, changeEmailValid] = useState(null)
     const [emailInvalid, changeEmailInvalid] = useState(null)
     const [validated, changeValidated] = useState(false)
     const [showSuccess, changeShowSuccess] = useState(false)
     const [contactInfo, changeContactInfo] = useState({
         name: '',
+        phone: '',
+        email: '',
         descr: '',
         refer: '',
+        date: '',
     })
 
     const handleShowModal = () => setShowModal(true);
@@ -64,8 +65,13 @@ export function ContactUs(props) {
     }
 
     function handleChangePhone(e) {
-        changePhone(normalizeInput(e.target.value, phone))
-        handlePhoneChange(e, normalizeInput(e.target.value, phone))
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                phone: normalizeInput(e.target.value, phone)
+            }
+        })
+        handlePhoneChange(e, normalizeInput(e.target.value, contactInfo.phone))
     }
 
     function handlePhoneChange(e, val)  {
@@ -83,7 +89,12 @@ export function ContactUs(props) {
     }
 
     function handleChangeEmail(e)  {
-        changeEmail(e.target.value)
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                email: e.target.value
+            }
+        })
         if (typeof e.target.value !== "undefined"){
             const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
             if (pattern.test(e.target.value)) {
@@ -122,12 +133,13 @@ export function ContactUs(props) {
                                 <FormGroup>
                                         <Form.Control className={"my-2"} isValid={emailValid} isInvalid={emailInvalid}
                                                       onChange={handleChangeEmail} type={"email"}
-                                                      placeholder="Email" name="email" required={!contactInfoGiven} value={email}/>
+                                                      placeholder="Email" name="email" required={!contactInfoGiven}
+                                                      value={contactInfo.email}/>
                                     <FormControl isInvalid={phoneInvalid}
                                                  isValid={phoneValid}
                                                  required={!contactInfoGiven}
                                                  type={"phone"} placeholder="(xxx) xxx-xxxx" maxLength={14}
-                                                 value={phone} name={"phone"}
+                                                 value={contactInfo.phone} name={"phone"}
                                                  onChange={handleChangePhone}/>
                                     <Form.Text className="text-muted text-center text-left">
                                         We'll never share your email or phone # with anyone else.
@@ -140,9 +152,12 @@ export function ContactUs(props) {
                         </Form.Group>
                         <Form.Group required className={"mb-3"} controlId="contactForm.ControlInput2">
                             <Col key={'contact-radios'} xs={12} className={"my-2"}>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"bday-radio"} label={"Birthday Party"} defaultChecked={true}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"school-radio"} label={"School Show"}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"civic-radio"} label={"Civic Shows (Libraries, etc.)"}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"bday-radio"}
+                                            label={"Birthday Party"} defaultChecked={true}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"school-radio"}
+                                            label={"School Show"}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"civic-radio"}
+                                            label={"Civic Shows (Libraries, etc.)"}/>
                             </Col>
                             <Col xs={12} className={"my-2"}>
                                 <Form.Control required type="date" name='req_date' label="Requested Dates" className={"text-center"}/>
