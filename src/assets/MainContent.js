@@ -17,31 +17,36 @@ export function MainContent(props) {
 
     function handleHeroPicsMounted(s) {
         changeHeroMounted(true)
+        console.log("herpicsm")
     }
 
     function handleCalloutMounted(s) {
         changeCalloutMounted(true)
+        console.log("callout m")
     }
 
     function handleBirthdayMounted(s) {
         changeBirthdayMounted(true)
         props.onContentMounted(true)
+        console.log("birthm")
     }
     const mql = window.matchMedia("(max-width: 992px)");
 
     useLayoutEffect( () => {
         if (mql.matches) {
             changeIsMobile(true)
+            changeHeroMounted(true)
+            console.log("DS")
         } else {
             changeIsMobile(false)
+            changeHeroMounted(true)
         }
     }, [])
 
     return(
         <Container id={"main-content-container"} className={"rounded"}>
             {isMobile ? '' : <HeroPics onPicsMounted={handleHeroPicsMounted}/>}
-
-            {heroMounted || isMobile ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
+            {heroMounted ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
             {calloutMounted ? <Birthday onMounted={handleBirthdayMounted}/> : ''}
             {birthdayMounted ? <School onMounted={() => null}/> : ''}
             {birthdayMounted ? <Activities /> : ''}
