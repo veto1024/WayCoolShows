@@ -22,9 +22,9 @@ export function ContactUs(props) {
         name: '',
         phone: '',
         email: '',
-        descr: '',
-        refer: '',
-        date: '',
+        description: '',
+        referring: '',
+        req_date: '',
     })
 
     const handleShowModal = () => setShowModal(true);
@@ -168,12 +168,12 @@ export function ContactUs(props) {
                         </Form.Group>
                         <Form.Group  className={"mb-3 no-validate"} controlId={"contactForm.ControlInput3"} >
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as="textarea" id={"request_text"} rows={3} name={"descr"}
+                                <Form.Control as="textarea" id={"request_text"} rows={3} name={"description"}
                                               onChange={handleChange}
                                               placeholder={"Details of your request."}/>
                             </Col>
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} name={"refer"}
+                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} name={"referring"}
                                               placeholder={"How did you hear about us? (Friend, teacher, online, etc.)"}
                                               onChange={handleChange}/>
                             </Col>

@@ -35,7 +35,7 @@ export function MainContent(props) {
             {calloutMounted ? <Birthday onMounted={handleBirthdayMounted}/> : ''}
             {birthdayMounted ? <School onMounted={() => null}/> : ''}
             {birthdayMounted ? <Activities /> : ''}
-            {birthdayMounted ? <Testimonials /> : ''}
+            {/*{birthdayMounted ? <Testimonials /> : ''}*/}
             {birthdayMounted ? <AboutMe/> : ''}
         </Container>
     )
