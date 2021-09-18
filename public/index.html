@@ -45,6 +45,14 @@
     <title>React App</title>
   </head>
   <body>
+  <form name="contact-us" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name"/>
+    <input type="email" name="email"/>
+    <input type="phone" name="phone" />
+    <input type="date" name="req_date" />
+    <textarea name="description"></textarea>
+    <textarea name="referring"></textarea>
+  </form>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

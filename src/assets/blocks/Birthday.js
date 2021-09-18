@@ -1,4 +1,4 @@
-import {ListGroup, ListGroupItem, Col, Container, Row, Image} from "react-bootstrap";
+import {Col, Container, Row, Image} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import {CSSTransition} from "react-transition-group";
 import {ContactUs} from "./ContactUs";
@@ -12,6 +12,8 @@ export function Birthday(props) {
         props.onMounted(true)
     })
 
+    // const oldImage = "https://image.shutterstock.com/shutterstock/photos/480030199/display_1500/stock-photo-children-celebrating-birthday-in-park-480030199.jpg"
+
 
 return (
         <CSSTransition classNames={"fade"} in={isMounted} timeout={2000} onEntered={props.onMounted(true)}>
@@ -22,25 +24,32 @@ return (
                     </Row>
 
                     <Row className={"show-box-row"}>
-                        <Image fluid className={"party-box-image"} src={"https://image.shutterstock.com/shutterstock/photos/480030199/display_1500/stock-photo-children-celebrating-birthday-in-park-480030199.jpg"} />
+                        <Image fluid className={"party-box-image"}  />
                     </Row>
-                    <Row className={"mb-3"}>
+                    <Row className={"mb-3 mt-2"}>
                         <Col lg={8} className={"fun-text"}>
                             <section className={"text-left"}>
-                                <p>Blah blah blah activitie and such and pictures!</p>
-                                <p>A great way to spend a birthday party!</p>
-                                <p>We'll dunk your child in liquid nitrogen!</p>
-                                <p>Some dip 'n dots? Eh eh?</p>
+                                <p>The Birthday Child gets to be our Featured Assistant!</p>
+                                <p>Hands-on, interactive, and fun science demonstrations!</p>
+                                <p>Can be held at your house or backyard or rented venue such as a community center!</p>
+                                <p>Optional: Cool science gifts!</p>
+                                <p>Time: 45 minutes to 1 hour</p>
+                                <p>Cost: $225</p>
                             </section>
 
                         </Col>
                         <Col lg={4} className={"requirement-block"}>
-                            <h1>Requirements</h1>
-                            <ListGroup variant={"flush"}>
-                                <ListGroupItem >Appropriate for all ages!</ListGroupItem>
-                                <ListGroupItem>Chairs for your butt</ListGroupItem>
-                                <ListGroupItem>Allow 45 minutes for setup and explosions</ListGroupItem>
-                            </ListGroup>
+                            <h1 className={"fun-text-large"}>Requirements</h1>
+                            <p className={"fun-text"}>Appropriate for all ages!</p>
+                            <p className={"fun-text"}>Chairs for your butt</p>
+                            <p className={"fun-text"}>Outdoor or well-ventilated setting</p>
+                            <p className={"fun-text"}>Allow 45 minutes for setup and take down</p>
+                            {/*<ListGroup variant={"flush"}>*/}
+                            {/*    <ListGroupItem>Appropriate for all ages!</ListGroupItem>*/}
+                            {/*    <ListGroupItem>Chairs for your butt</ListGroupItem>*/}
+                            {/*    <ListGroupItem>Outdoor or well-ventilated setting</ListGroupItem>*/}
+                            {/*    <ListGroupItem>Allow 45 minutes for setup and take down</ListGroupItem>*/}
+                            {/*</ListGroup>*/}
                         </Col>
                     </Row>
                     <Row>

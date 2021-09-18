@@ -3,17 +3,30 @@ import React, {useState} from "react";
 import {normalizeInput} from "../normalizeInput";
 import validator from 'validator';
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+
 export function ContactUs(props) {
     const [showModal, setShowModal] = useState(false)
-    const [phone, changePhone] = useState(null)
     const [phoneValid, changePhoneValid] = useState(null)
     const [phoneInvalid, changePhoneInvalid] = useState(null)
     const [contactInfoGiven, changeContactInfoGiven] = useState(false)
-    const [email, changeEmail] = useState(null)
     const [emailValid, changeEmailValid] = useState(null)
     const [emailInvalid, changeEmailInvalid] = useState(null)
     const [validated, changeValidated] = useState(false)
     const [showSuccess, changeShowSuccess] = useState(false)
+    const [contactInfo, changeContactInfo] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        description: '',
+        referring: '',
+        req_date: '',
+    })
+
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
@@ -21,19 +34,44 @@ export function ContactUs(props) {
         block:false,
     }
 
+    const handleChange = (event) => {
+        let value = event.target.value
+        let name = event.target.name
+
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                [name]: value
+            }
+        })
+    }
+
+
+
     function handleSubmit(s) {
         const form = s.currentTarget;
         s.preventDefault();
         s.stopPropagation();
         if (form.checkValidity() === true) {
-            changeShowSuccess(true)
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({ "form-name": "contact-us", ...contactInfo })
+            })
+                .then(() => changeShowSuccess(true))
+                .catch(error => alert(error));
         }
         changeValidated(true);
     }
 
     function handleChangePhone(e) {
-        changePhone(normalizeInput(e.target.value, phone))
-        handlePhoneChange(e, normalizeInput(e.target.value, phone))
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                phone: normalizeInput(e.target.value, contactInfo.phone)
+            }
+        })
+        handlePhoneChange(e, normalizeInput(e.target.value, contactInfo.phone))
     }
 
     function handlePhoneChange(e, val)  {
@@ -51,7 +89,12 @@ export function ContactUs(props) {
     }
 
     function handleChangeEmail(e)  {
-        changeEmail(e.target.value)
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                email: e.target.value
+            }
+        })
         if (typeof e.target.value !== "undefined"){
             const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
             if (pattern.test(e.target.value)) {
@@ -80,22 +123,24 @@ export function ContactUs(props) {
                     </Col>
                 </Row>
                 {!showSuccess ?
-                    <Form noValidate validated={validated} onSubmit={handleSubmit} name={"contact-us"} data-netlify={true} >
+                    <Form noValidate validated={validated} onSubmit={handleSubmit} >
                         <Form.Group className={"mb-3"} controlId="contactForm.ControlInput1">
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control required type={"text"} placeholder="Name" />
+                                <Form.Control required type={"text"} placeholder="Name" name={"name"}
+                                              onChange={handleChange} />
                             </Col>
                             <Col xs={12} className={"my-2"}>
                                 <FormGroup>
                                         <Form.Control className={"my-2"} isValid={emailValid} isInvalid={emailInvalid}
                                                       onChange={handleChangeEmail} type={"email"}
-                                                      placeholder="Email" name="email" required={!contactInfoGiven} value={email}/>
+                                                      placeholder="Email" name="email" required={!contactInfoGiven}
+                                                      value={contactInfo.email}/>
                                     <FormControl isInvalid={phoneInvalid}
                                                  isValid={phoneValid}
                                                  required={!contactInfoGiven}
                                                  type={"phone"} placeholder="(xxx) xxx-xxxx" maxLength={14}
-                                                 value={phone} name={"phone"}
-                                                 onChange={handleChangePhone}></FormControl>
+                                                 value={contactInfo.phone} name={"phone"}
+                                                 onChange={handleChangePhone}/>
                                     <Form.Text className="text-muted text-center text-left">
                                         We'll never share your email or phone # with anyone else.
                                     </Form.Text>
@@ -107,9 +152,12 @@ export function ContactUs(props) {
                         </Form.Group>
                         <Form.Group required className={"mb-3"} controlId="contactForm.ControlInput2">
                             <Col key={'contact-radios'} xs={12} className={"my-2"}>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"bday-radio"} label={"Birthday Party"} defaultChecked={true}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"school-radio"} label={"School Show"}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"civic-radio"} label={"Civic Shows (Libraries, etc.)"}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"bday-radio"}
+                                            label={"Birthday Party"} defaultChecked={true}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"school-radio"}
+                                            label={"School Show"}/>
+                                <Form.Check type={"radio"} name={"contact-radios"} id={"civic-radio"}
+                                            label={"Civic Shows (Libraries, etc.)"}/>
                             </Col>
                             <Col xs={12} className={"my-2"}>
                                 <Form.Control required type="date" name='req_date' label="Requested Dates" className={"text-center"}/>
@@ -120,10 +168,14 @@ export function ContactUs(props) {
                         </Form.Group>
                         <Form.Group  className={"mb-3 no-validate"} controlId={"contactForm.ControlInput3"} >
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as="textarea" id={"request_text"} rows={3} placeholder={"Details of your request."}/>
+                                <Form.Control as="textarea" id={"request_text"} rows={3} name={"description"}
+                                              onChange={handleChange}
+                                              placeholder={"Details of your request."}/>
                             </Col>
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} placeholder={"How did you hear about us? (Friend, teacher, online, etc.)"}/>
+                                <Form.Control as={"textarea"} id={"ref_text"} rows={1} name={"referring"}
+                                              placeholder={"How did you hear about us? (Friend, teacher, online, etc.)"}
+                                              onChange={handleChange}/>
                             </Col>
 
                         </Form.Group>

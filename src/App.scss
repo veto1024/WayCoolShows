@@ -19,12 +19,31 @@ $fadeAlmostInOpacity: 0.9;
 $background: $dark;
 
 body {
-  background-image: url("assets/images/main-back-90.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: scroll;
+  background-image: url("assets/images/xs/nitroback_xs.jpg");
+  @include media-breakpoint-up(lg) {
+  background-image: url("assets/images/lg/nitroback_xl.jpg");
+  }
+
 }
+
+
+/****************************
+    Imagery
+************************* */
+.party-box-image {
+  background-image: url("assets/images/xs/bparty_xs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include media-breakpoint-up(lg) {
+    background-image: url("assets/images/lg/bparty_xl.jpg");
+  }
+}
+
+
 /**********************************************
             Typography
 ***********************************************/
