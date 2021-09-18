@@ -14,7 +14,6 @@ export function MainContent(props) {
     const [calloutMounted, changeCalloutMounted] = useState(false)
     const [birthdayMounted, changeBirthdayMounted] = useState(false)
     const [isMobile, changeIsMobile] = useState(null)
-    const [mobileChecked, changeMobileChecked] = useState(false)
 
     function handleHeroPicsMounted(s) {
         changeHeroMounted(true)
