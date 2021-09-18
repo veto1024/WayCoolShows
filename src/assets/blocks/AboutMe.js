@@ -12,7 +12,7 @@ export function AboutMe() {
                         <p>About Me</p>
                     </Row>
                     <Row className={"show-box-row"}>
-                        <Col xs={{span:8, offset:2}} lg={{span:6, offset:0}} className={"mt-3"}>
+                        <Col xs={{span:10, offset:1}} lg={{span:6, offset:0}} className={"mt-3"}>
                             <div id={"about-me-pic"}>
                                 <Image rounded className={"img-fit-width"} />
                             </div>
