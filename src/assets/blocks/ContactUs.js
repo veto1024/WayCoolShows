@@ -68,7 +68,7 @@ export function ContactUs(props) {
         changeContactInfo((prevalue) => {
             return {
                 ...prevalue,
-                phone: normalizeInput(e.target.value, phone)
+                phone: normalizeInput(e.target.value, contactInfo.phone)
             }
         })
         handlePhoneChange(e, normalizeInput(e.target.value, contactInfo.phone))
