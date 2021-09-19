@@ -23,6 +23,7 @@ export function ContactUs(props) {
         phone: '',
         email: '',
         description: '',
+        show_type: 'birthday',
         referring: '',
         req_date: '',
     })
@@ -34,9 +35,21 @@ export function ContactUs(props) {
         block:false,
     }
 
+    const handleShowTypeChange = (event) => {
+        let value = event.target.value
+        console.log(value)
+        changeContactInfo((prevalue) => {
+            return {
+                ...prevalue,
+                show_type: value
+            }
+        })
+    }
+
     const handleChange = (event) => {
         let value = event.target.value
         let name = event.target.name
+
 
         changeContactInfo((prevalue) => {
             return {
@@ -74,7 +87,7 @@ export function ContactUs(props) {
         handlePhoneChange(e, normalizeInput(e.target.value, contactInfo.phone))
     }
 
-    function handlePhoneChange(e, val)  {
+    function handlePhoneChange(e)  {
         if (typeof e.target.value !== "undefined") {
             if (validator.isMobilePhone(e.target.value)) {
                 changePhoneValid(true)
@@ -150,17 +163,23 @@ export function ContactUs(props) {
 
                             </Col>
                         </Form.Group>
-                        <Form.Group required className={"mb-3"} controlId="contactForm.ControlInput2">
+                        <Form.Group required name={"show_type"} className={"mb-3"} controlId="contactForm.ControlInput2" onChange={handleShowTypeChange}>
                             <Col key={'contact-radios'} xs={12} className={"my-2"}>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"bday-radio"}
-                                            label={"Birthday Party"} defaultChecked={true}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"school-radio"}
-                                            label={"School Show"}/>
-                                <Form.Check type={"radio"} name={"contact-radios"} id={"civic-radio"}
-                                            label={"Civic Shows (Libraries, etc.)"}/>
+                                <Form.Check type={"radio"} name={"contact-radio-show"} id={"bday-radio"}
+                                            label={"Birthday Party"} defaultChecked={true} value={"birthday"}/>
+                                <Form.Check type={"radio"}  id={"school-radio"}
+                                            label={"School Show"} name={"contact-radio-show"} value={"school"}/>
+                                <Form.Check type={"radio"} name={"contact-radio-show"} id={"civic-radio"}
+                                            label={"Civic Shows (Libraries, etc.)"} value={"civic"}/>
                             </Col>
+                        </Form.Group>
+                        <Form.Group className={"mb-3"} controlId={"contactForm.ControlGroupDate"}>
                             <Col xs={12} className={"my-2"}>
-                                <Form.Control required type="date" name='req_date' label="Requested Dates" className={"text-center"}/>
+                                <Form.Control required type="date" name='req_date'
+                                              label="Requested Dates"
+                                              className={"text-center"}
+                                              onChange={handleChange}
+                                              value={contactInfo.req_date}/>
                                 <Form.Text className="text-muted text-left">
                                     Required: Date requested. If multiple dates, please indicate the first date.
                                 </Form.Text>

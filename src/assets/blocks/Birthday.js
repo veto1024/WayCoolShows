@@ -9,14 +9,15 @@ export function Birthday(props) {
 
     useEffect( () => {
         changeIsMounted(true)
-        props.onMounted(true)
-    })
+    }, [isMounted])
 
-    // const oldImage = "https://image.shutterstock.com/shutterstock/photos/480030199/display_1500/stock-photo-children-celebrating-birthday-in-park-480030199.jpg"
+    function handleOnEntered()  {
+        props.onMounted(true)
+    }
 
 
 return (
-        <CSSTransition classNames={"fade"} in={isMounted} timeout={2000} onEntered={props.onMounted(true)}>
+        <CSSTransition classNames={"fade"} in={isMounted} timeout={2000} onEntered={handleOnEntered}>
             <Row id={"birthday-box"} className={"anchor border rounded mt-5 mb-3"}>
                 <Container className={"bg-dark text-light display-4 text-center pb-5 pt-5"}>
                     <Row className={"mt-3 fun-text-largest"}>

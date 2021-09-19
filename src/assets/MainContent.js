@@ -10,49 +10,83 @@ import {Activities} from "./blocks/Activities";
 //import {Testimonials} from "./blocks/Testimonials";
 
 export function MainContent(props) {
-    const [heroMounted, changeHeroMounted] = useState(false)
-    const [calloutMounted, changeCalloutMounted] = useState(false)
-    const [birthdayMounted, changeBirthdayMounted] = useState(false)
+
     const [isMobile, changeIsMobile] = useState(null)
-
-    function handleHeroPicsMounted(s) {
-        changeHeroMounted(true)
-        console.log("herpicsm")
-    }
-
-    function handleCalloutMounted(s) {
-        changeCalloutMounted(true)
-        console.log("callout m")
-    }
-
-    function handleBirthdayMounted(s) {
-        changeBirthdayMounted(true)
-        props.onContentMounted(true)
-        console.log("birthm")
-    }
-    const mql = window.matchMedia("(max-width: 992px)");
+    const [mobileChecked, changeMobileChecked] = useState(false)
+    const mql = window.matchMedia("(max-width: 992px)")
 
     useLayoutEffect( () => {
         if (mql.matches) {
             changeIsMobile(true)
-            changeHeroMounted(true)
-            console.log("DS")
         } else {
             changeIsMobile(false)
-            changeHeroMounted(true)
+        }
+        changeMobileChecked(true)
+
+    })
+
+    function handleOnMount() {
+        props.onContentMounted(true)
+    }
+
+    return (
+        <div>
+            {mobileChecked ? <MainContentContainer isMobile={isMobile} onContentMounted={handleOnMount}/> : ''}
+        </div>
+    );
+}
+
+export function MainContentContainer(props) {
+
+    const [heroMounted, changeHeroMounted] = useState(false)
+    const [calloutMounted, changeCalloutMounted] = useState(false)
+    const [birthdayMounted, changeBirthdayMounted] = useState(false)
+
+    useEffect(() => {
+        if (props.isMobile) {
+            handleHeroPicsMounted()
         }
     }, [])
 
-    return(
+    function handleHeroPicsMounted() {
+        changeHeroMounted(true)
+    }
+
+    function handleCalloutMounted() {
+        changeCalloutMounted(true)
+    }
+
+    function handleBirthdayMounted() {
+        changeBirthdayMounted(true)
+    }
+
+    function handlePostBirthdayMounted() {
+        props.onContentMounted(true)
+    }
+
+    return (
         <Container id={"main-content-container"} className={"rounded"}>
-            {isMobile ? '' : <HeroPics onPicsMounted={handleHeroPicsMounted}/>}
+            {props.isMobile ? '' : <HeroPics onPicsMounted={handleHeroPicsMounted}/>}
             {heroMounted ? <MainCallout onMounted={handleCalloutMounted}/>: ''}
             {calloutMounted ? <Birthday onMounted={handleBirthdayMounted}/> : ''}
-            {birthdayMounted ? <School onMounted={() => null}/> : ''}
-            {birthdayMounted ? <Activities /> : ''}
-            {/*{birthdayMounted ? <Testimonials /> : ''}*/}
-            {birthdayMounted ? <AboutMe/> : ''}
+            {birthdayMounted ? <PostBirthday onMounted={handlePostBirthdayMounted}/> : ''}
         </Container>
+    )
+}
+
+export function PostBirthday(props) {
+
+    useEffect( () => {
+        props.onMounted(true)
+    }, [])
+
+    return (
+        <div>
+            <School/>
+            <Activities/>
+            {/*<Testimonials/>*/}
+            <AboutMe/>
+        </div>
     )
 }
 
@@ -62,7 +96,7 @@ export function MainCallout(props) {
     useEffect( () => {
         changeMount(true)
         props.onMounted(true)
-    })
+    }, [])
 
     return (
         <CSSTransition in={mount} classNames={"fade"} timeout={2000}>

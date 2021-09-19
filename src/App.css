@@ -7852,13 +7852,13 @@ body {
       background-image: url("assets/images/lg/bparty_xl.jpg"); } }
 
 .school-box-image {
-  background-image: url("assets/images/xs/school.jpg");
+  background-image: url("assets/images/xs/school_xs.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }
   @media (min-width: 992px) {
     .school-box-image {
-      background-image: url("assets/images/xs/school.jpg"); } }
+      background-image: url("assets/images/lg/school_xl.jpg"); } }
 
 /**********************************************
             Typography

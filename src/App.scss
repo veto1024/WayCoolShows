@@ -56,12 +56,12 @@ body {
 
 }
 .school-box-image {
-  background-image: url("assets/images/xs/school.jpg");
+  background-image: url("assets/images/xs/school_xs.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   @include media-breakpoint-up(lg) {
-    background-image: url("assets/images/xs/school.jpg");
+    background-image: url("assets/images/lg/school_xl.jpg");
   }
 
 }
